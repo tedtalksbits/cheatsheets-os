@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://tedtalksbits.github.io/styles/styles.css"
+        />
+        <link rel="stylesheet" href="styles.css" />
+        <title>Things You Will Forget</title>
+    </head>
+
+    <body class="bg-white-a-900 content-wrapper" style="color: black">
+        <header class="mb-xxxl full-bleed">
+            <h1 class="white-a-900 font-xxxl">
+                Things You Will Forget But Is Good To Know 🧠
+            </h1>
+        </header>
+        <main class="px-l">
+            <div class="table-of-contents card">
+                <details open>
+                    <summary>Table of Contents</summary>
+                    <ol>
+                        <li>
+                            <a href="#windows">Windows</a>
+                            <ul>
+                                <li>
+                                    <a href="#getting-system-info"
+                                        >Getting System Info</a
+                                    >
+                                </li>
+                                <ul>
+                                    <li>
+                                        <a href="#basic-system-info"
+                                            >Basic System Info</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a href="#advanced-system-info"
+                                            >Advanced System Info</a
+                                        >
+                                    </li>
+                                </ul>
+                                <li>
+                                    <a href="#killing-processes"
+                                        >Killing Processes</a
+                                    >
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#mac">Mac</a>
+                            <ul>
+                                <li>
+                                    <a href="#prerequisites">Prerequisites</a>
+                                </li>
+                                <li>
+                                    <a href="#installation">Installation</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ol>
+                </details>
+            </div>
+            <div class="resources card">
+                <details>
+                    <summary>Resources and References</summary>
+                    <ul>
+                        <li>
+                            <a href="https://www.windows-commandline.com/"
+                                >Windows Commandline</a
+                            >
+                        </li>
+                        <li>
+                            <a href="#mac">Mac</a>
+                        </li>
+                    </ul>
+                </details>
+            </div>
+
+            <section id="windows">
+                <h2 class="font-xxl mb-xxxl">Windows</h2>
+                <div id="getting-system-info">
+                    <div id="basic-system-info">
+                        <h4 class="mb-m">Getting System Basic Info</h4>
+                        <p class="black-a-800">
+                            To get system info, open a command prompt and type
+                            <code>systeminfo</code>
+                        </p>
+                        <details class="img-preview my-xl">
+                            <summary><small>Screenshot</small></summary>
+                            <img
+                                class="screenshot"
+                                src="static/images/systeminfo.png"
+                                alt="screenshot of cmd"
+                            />
+                        </details>
+                    </div>
+                    <div id="advanced-system-info" class="mb-l">
+                        <h4 class="mb-m">Getting System Advanced Info</h4>
+                        <p class="black-a-800">
+                            To get more specific system info, you can use WMIC.
+                            For example to get the motherboard info, type:
+                            <code
+                                >wmic baseboard get
+                                product,Manufacturer,version,serialnumber</code
+                            >
+                        </p>
+
+                        <details class="img-preview my-xl">
+                            <summary><small>Screenshot</small></summary>
+                            <img
+                                class="screenshot"
+                                src="https://www.howtogeek.com/wp-content/uploads/2017/10/wmic_1.png?trim=1,1&bg-color=000&pad=1,1"
+                                alt="screenshot of cmd"
+                            />
+                        </details>
+
+                        <p class="black-a-800 mb-l">
+                            Alternatively, you can open the system information
+                            window by using the Run window. Press
+                            <kbd>Windows</kbd> + <kbd>r</kbd>, Then type:
+                            <code>msinfo32</code>
+                        </p>
+                        <p class="black-a-800">
+                            You're not limted to just information about the
+                            Motherboard AKA Baseboard. You can get information
+                            on a lot of other components. For example, to get
+                            the informationon the <b>CPU</b>, type:
+                            <code
+                                >wmic cpu get
+                                name,Manufacturer,version,serialnumber</code
+                            >
+                        </p>
+
+                        <a href="https://windows-cmd.com/wmic-command/#Alias"
+                            >See more alias</a
+                        >
+                    </div>
+                </div>
+                <div id="killing-processes">
+                    <h4 class="mb-m">Killing Processes</h4>
+                    <ol>
+                        <li>
+                            <b class="mb-m">Find process</b>
+                            <p class="black-a-800">
+                                To find the process you want to kill, open a
+                                command prompt and type:
+                                <code>tasklist</code>
+                            </p>
+                            <ul>
+                                <li>
+                                    <p class="bold">
+                                        Filtering list (Using netstat, /fi)
+                                    </p>
+                                </li>
+                                <ul>
+                                    <li>
+                                        <p class="black-a-800">
+                                            To filter the list, you can use the
+                                            <code>/fi</code> flag. For example,
+                                            to filter the list by the name of
+                                            the process, type:
+                                            <code
+                                                >tasklist /fi "imagename eq
+                                                chrome.exe"</code
+                                            >
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p class="black-a-800">
+                                            To filter the list by the process
+                                            id, type:
+                                            <code
+                                                >tasklist /fi "pid eq
+                                                1234"</code
+                                            >
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p class="black-a-800">
+                                            To find processes running on port
+                                            8080, type:
+                                            <code
+                                                >netstat -ano | findstr
+                                                :8080</code
+                                            >
+                                        </p>
+                                    </li>
+                                </ul>
+                            </ul>
+                        </li>
+                        <li>
+                            <b class="mb-m">Kill process</b>
+                            <p class="black-a-800">
+                                To kill a process, open a command prompt and
+                                type:
+                                <code>taskkill /pid 1234</code>
+                            </p>
+                        </li>
+                    </ol>
+                </div>
+            </section>
+
+            <section id="mac">
+                <h2 class="font-xxl">Mac</h2>
+            </section>
+        </main>
+    </body>
+    <script>
+        // copy to clipboard
+
+        const codeElements = document.querySelectorAll('code');
+
+        codeElements.forEach((codeElement) => {
+            codeElement.addEventListener('click', () => {
+                navigator.clipboard.writeText(codeElement.innerText);
+                codeElement.classList.add('copied');
+                setTimeout(() => {
+                    codeElement.classList.remove('copied');
+                }, 1000);
+            });
+        });
+    </script>
+    <script>
+        // higlight current section when scrolling
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.table-of-contents a');
+
+        const options = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5,
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach((entry) => {
+                // console.log(entry);
+                if (entry.isIntersecting) {
+                    console.log(entry.target.getAttribute('id'));
+                    const id = entry.target.getAttribute('id');
+                    navLinks.forEach((link) => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, options);
+
+        sections.forEach((section) => {
+            observer.observe(section);
+        });
+
+        // smooth scrolling
+
+        navLinks.forEach((link) => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const id = link.getAttribute('href').slice(1);
+                const section = document.getElementById(id);
+                section.scrollIntoView({
+                    behavior: 'smooth',
+                });
+            });
+        });
+    </script>
+</html>
